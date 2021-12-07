@@ -1,6 +1,6 @@
 window.config = {
   carousel: {
-    autoPlay: false,
+    autoPlay: true,
     loop: false,
     startSlide: 0,
     maxSlides: 3,
