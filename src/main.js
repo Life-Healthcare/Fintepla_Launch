@@ -16,7 +16,7 @@ window.main = () => {
     },
   };
 
-  function updateSlide() {
+  window.updateSlide = function () {
     state.carousel.slide = state.carousel.slide + 1;
     if (state.carousel.slide > window.config.carousel.maxSlides - 1) {
       if (!window.config.carousel.loop) return;
@@ -28,7 +28,7 @@ window.main = () => {
       return;
     }
     setTimeout(updateSlide, window.config.carousel.slideTimeout);
-  }
+  };
 
   if (window.config.carousel.autoPlay) {
     setTimeout(updateSlide, window.config.carousel.slideTimeout);
