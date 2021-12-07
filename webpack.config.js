@@ -8,12 +8,7 @@ const DEV_MODE = process.env.NODE_ENV === "development";
 const SRC_DIR = path.resolve(__dirname, "src");
 const BUILD_DIR = path.resolve(__dirname, "build");
 
-const types = [
-  // "leaderboard",
-  "mpu",
-  "double-mpu",
-  // "mobile"
-];
+const types = ["leaderboard", "mpu", "double-mpu", "mobile"];
 
 const base = {
   mode: DEV_MODE ? "development" : "production",
@@ -72,14 +67,16 @@ module.exports = merge(
             type,
             mode: process.env.NODE_ENV,
           },
-          minify: {
-            collapseWhitespace: true,
-            removeComments: true,
-            removeRedundantAttributes: true,
-            removeScriptTypeAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            useShortDoctype: true,
-          },
+          minify: DEV_MODE
+            ? undefined
+            : {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+              },
         }),
         new MiniCssExtractPlugin({ filename: "[name].css" }),
         new CopyPlugin({

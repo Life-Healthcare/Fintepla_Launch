@@ -9,6 +9,27 @@ window.config = {
 };
 
 window.main = () => {
+  const main = document.querySelector("#main");
+  const legal = document.querySelector("#legal");
+
+  const links = {
+    main: "https://zogenix.wavecast.io/fintepla-2022/registration?utm_source=Digital&utm_medium=BannerAds&utm_campaign=Register_interest",
+    legal:
+      "https://fintepla.eu/wp-content/uploads/pdf/Fintepla-fenfluramine-Prescribing-Information.pdf",
+  };
+
+  function openLink(link) {
+    window.open(link, "_blank");
+  }
+
+  main.addEventListener("click", () => {
+    openLink(links.main);
+  });
+
+  legal.addEventListener("click", () => {
+    openLink(links.legal);
+  });
+
   const carousel = document.querySelector(".carousel");
   const state = {
     carousel: {
