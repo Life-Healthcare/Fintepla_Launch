@@ -1,5 +1,4 @@
 const path = require("path");
-const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
@@ -15,17 +14,6 @@ const base = {
   target: DEV_MODE ? "web" : "browserslist",
   stats: "minimal",
   entry: [path.join(SRC_DIR, "main.js"), path.join(SRC_DIR, "main.css")],
-  devServer: {
-    hot: true,
-    devMiddleware: {
-      writeToDisk: true,
-    },
-    static: {
-      directory: BUILD_DIR,
-      publicPath: "",
-      watch: true,
-    },
-  },
   module: {
     rules: [
       {
@@ -54,51 +42,50 @@ const base = {
   },
 };
 
-module.exports = merge(
-  base,
-  ...types.map((type) => {
-    const config = {
-      plugins: [
-        new HtmlWebpackPlugin({
-          template: path.join(SRC_DIR, "index.ejs"),
-          inject: true,
-          filename: `${type}.html`,
-          templateParameters: {
-            type,
-            mode: process.env.NODE_ENV,
-          },
-          minify: DEV_MODE
-            ? undefined
-            : {
-                collapseWhitespace: true,
-                removeComments: true,
-                removeRedundantAttributes: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                useShortDoctype: true,
-              },
-        }),
-        new MiniCssExtractPlugin({ filename: "[name].css" }),
-        new CopyPlugin({
-          patterns: [
-            {
-              from: path.join(SRC_DIR, "assets"),
-              to: path.join(BUILD_DIR, "assets"),
-            },
-          ],
-        }),
-      ],
-      output: {
-        path: path.join(BUILD_DIR),
-        clean: true,
-        publicPath: "",
+module.exports = types.map((type) => {
+  const config = {
+    ...base,
+    devServer: {
+      hot: true,
+      devMiddleware: {
+        writeToDisk: true,
       },
-    };
-
-    if (!DEV_MODE) {
-      //
-    }
-
-    return config;
-  })
-);
+      static: {
+        directory: BUILD_DIR,
+        publicPath: "",
+        watch: true,
+      },
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: path.join(SRC_DIR, "index.ejs"),
+        inject: true,
+        filename: "index.html",
+        templateParameters: {
+          type,
+          mode: process.env.NODE_ENV,
+        },
+        minify: DEV_MODE
+          ? undefined
+          : {
+              collapseWhitespace: true,
+              removeComments: true,
+              removeRedundantAttributes: true,
+              removeScriptTypeAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              useShortDoctype: true,
+            },
+      }),
+      new MiniCssExtractPlugin({ filename: "[name].css" }),
+    ],
+    output: {
+      path: path.join(BUILD_DIR, type),
+      clean: true,
+      publicPath: "",
+    },
+  };
+  if (!DEV_MODE) {
+    //
+  }
+  return config;
+});

@@ -12,22 +12,25 @@
     <main id="main">
         <div class="carousel" data-slide="0" style="--slide: 0">
             <div class="carousel-slides">
-                <div class="carousel-slide carousel-slide-0">
+                <div class="carousel-slide carousel-slide-0"
+                     style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
                     <h3>Launching in the UK IN 2022</h3>
                 </div>
-                <div class="carousel-slide carousel-slide-1">
+                <div class="carousel-slide carousel-slide-1"
+                     style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
                     <h3>Join us for the launch meeting – in person or online</h3>
                 </div>
-                <div class="carousel-slide carousel-slide-2">
+                <div class="carousel-slide carousel-slide-2"
+                     style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
                     <div class="button">
                         <span>REGISTER <br/>YOUR INTEREST</span>
-                        <img src="assets/triangle.svg" alt=""/>
+                        <img src="<%= require('./assets/triangle.svg') %>" alt=""/>
                     </div>
                 </div>
             </div>
         </div>
 
-        <img class="logo" src="assets/logo.svg" alt="ZOGENIX"/>
+        <img class="logo" src="<%= require('./assets/logo.svg') %>" alt="ZOGENIX"/>
         <div class="disclaimer">Fintepla is currently<br/>under NICE evaluation</div>
         <% if (['leaderboard', 'mobile'].includes(type)) { %>
             <div class="legal" id="legal">
@@ -55,7 +58,7 @@
                 </p>
             </div>
         <% } %>
-        <img src="assets/fintepla-logo.svg" alt="Fintepla"/>
+        <img src="<%= require('./assets/fintepla-logo.svg') %>" alt="Fintepla"/>
         <% if (['mobile'].includes(type)) { %>
             <p>
                 UK-FIN1-2100083<br/>

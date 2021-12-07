@@ -156,9 +156,9 @@ aside {
 }
 
 .leaderboard .carousel-slide {
-  background-image: url("./assets/leaderboard-background.jpg");
   background-size: var(--background-size);
   background-position: var(--background-position);
+  transition: all 3.5s ease;
 }
 
 .leaderboard .logo {
@@ -219,10 +219,9 @@ aside {
   height: 198px;
 }
 
-.mpu .carousel {
+.mpu .carousel-slide {
   background-size: var(--background-size);
   background-position: var(--background-position);
-  background-image: url("./assets/mpu-background.jpg");
   transition: all 3s ease;
 }
 
@@ -280,7 +279,7 @@ aside {
   width: 194px;
 }
 
-.mpu .carousel[data-slide="2"] {
+.mpu .carousel[data-slide="2"] .carousel-slide {
   --background-size: auto 160%;
   --background-position: 80% 40%;
 }
@@ -298,10 +297,11 @@ aside {
   height: 528px;
 }
 
-.double-mpu .carousel {
+.double-mpu .carousel-slide {
+  --background-size: auto 100%;
+  --background-position: 100% 0;
   background-size: var(--background-size);
   background-position: var(--background-position);
-  background-image: url("./assets/double-mpu-background.jpg");
   transition: all 3s ease;
 }
 
@@ -397,7 +397,7 @@ aside {
   padding-bottom: 80px;
 }
 
-.double-mpu .carousel[data-slide="2"] {
+.double-mpu .carousel[data-slide="2"] .carousel-slide {
   --background-size: auto 150%;
   --background-position: 37% 90%;
 }
@@ -454,13 +454,16 @@ aside {
 }
 
 .mobile .carousel {
-  --background-size: 100% auto;
-  --background-position: 100% 0;
   height: 32px;
 }
 
 .mobile .carousel-slide {
-  background-image: url("./assets/mobile-background.jpg");
+  --background-size: 100% auto;
+  --background-position: 100% 0;
+  transition: all 3.5s ease;
+}
+
+.mobile .carousel-slide {
   background-size: var(--background-size);
   background-position: var(--background-position);
 }
