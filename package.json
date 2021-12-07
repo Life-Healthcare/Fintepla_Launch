@@ -10,7 +10,6 @@
     "not IE 11"
   ],
   "devDependencies": {
-    "copy-webpack-plugin": "^10.0.0",
     "css-loader": "^5.2.7",
     "extract-loader": "^5.1.0",
     "html-webpack-plugin": "^5.3.1",
