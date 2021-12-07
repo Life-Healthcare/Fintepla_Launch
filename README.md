@@ -27,7 +27,7 @@ npm run build
 
 ### UAT Links
 
-- [MPU](https://finer-vision.github.io/fintepla-banners/mpu.html)
-- [Double MPU](https://finer-vision.github.io/fintepla-banners/double-mpu.html)
-- [Leaderboard](https://finer-vision.github.io/fintepla-banners/leaderboard.html)
-- [Mobile](https://finer-vision.github.io/fintepla-banners/mobile.html)
+- [MPU](https://finer-vision.github.io/fintepla-banners/mpu)
+- [Double MPU](https://finer-vision.github.io/fintepla-banners/double-mpu)
+- [Leaderboard](https://finer-vision.github.io/fintepla-banners/leaderboard)
+- [Mobile](https://finer-vision.github.io/fintepla-banners/mobile)
