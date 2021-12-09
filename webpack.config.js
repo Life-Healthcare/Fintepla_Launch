@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const DEV_MODE = process.env.NODE_ENV === "development";
 const SRC_DIR = path.resolve(__dirname, "src");
@@ -77,6 +79,12 @@ module.exports = types.map((type) => {
       }),
       new MiniCssExtractPlugin({ filename: "[name].css" }),
     ],
+    optimization: DEV_MODE
+      ? undefined
+      : {
+          minimize: true,
+          minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+        },
     output: {
       path: path.join(BUILD_DIR, type),
       clean: true,

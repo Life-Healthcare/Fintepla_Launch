@@ -9,7 +9,7 @@ const PACKAGE_DIR = path.resolve(__dirname, "..", "package");
 (async () => {
   try {
     if (fs.existsSync(PACKAGE_DIR)) {
-      fs.rmdirSync(PACKAGE_DIR, { recursive: true });
+      execSync(`rm -rf ${PACKAGE_DIR}`, { stdio: "inherit" });
     }
     fs.mkdirSync(PACKAGE_DIR);
 
