@@ -76,6 +76,10 @@ sup {
   cursor: pointer;
 }
 
+.legal p {
+  line-height: 1.2em;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -147,10 +151,6 @@ sup {
   align-items: center;
   justify-content: space-between;
   padding: 0 11px;
-}
-
-.leaderboard .legal strong {
-  font-weight: normal;
 }
 
 .leaderboard aside {
@@ -298,10 +298,6 @@ sup {
   padding: 6px 11px;
 }
 
-.mpu aside strong {
-  font-weight: normal;
-}
-
 .mpu .button {
   gap: 10px;
   padding: 5px 11px;
@@ -380,6 +376,43 @@ sup {
   flex-direction: column-reverse;
 }
 
+.double-mpu .carousel-slide-0,
+.double-mpu .carousel-slide-1,
+.double-mpu .carousel-slide-2,
+.double-mpu .carousel-slide-3 {
+  position: relative;
+  z-index: 0;
+}
+
+.double-mpu .carousel-slide-0::after,
+.double-mpu .carousel-slide-1::after,
+.double-mpu .carousel-slide-2::after {
+  content: "";
+  width: 169px;
+  height: 300px;
+  background: linear-gradient(#000 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.63;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.double-mpu .carousel-slide-0::before,
+.double-mpu .carousel-slide-1::before,
+.double-mpu .carousel-slide-2::before,
+.double-mpu .carousel-slide-3::before {
+  content: "";
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(#000 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.63;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .double-mpu main {
   height: 528px;
 }
@@ -411,9 +444,14 @@ sup {
   font-size: 9px;
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
   gap: 20px;
   padding: 9px 11px;
+}
+
+.double-mpu aside img {
+  width: 80px;
 }
 
 .double-mpu .button {

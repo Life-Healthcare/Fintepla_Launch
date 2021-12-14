@@ -4,7 +4,7 @@ window.config = {
   carousel: {
     autoPlay: DEV_MODE ? false : true,
     loop: DEV_MODE ? false : false,
-    startSlide: DEV_MODE ? 2 : 0,
+    startSlide: DEV_MODE ? 3 : 0,
     maxSlides: 4,
     slideTimeout: DEV_MODE ? 5000 : 5000,
   },
