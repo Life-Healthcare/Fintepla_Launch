@@ -1,12 +1,12 @@
+const DEV_MODE = window.location.host === "localhost:8080";
+
 window.config = {
   carousel: {
-    // autoPlay: true,
-    autoPlay: false,
-    loop: false,
-    // startSlide: 0,
-    startSlide: 2,
+    autoPlay: DEV_MODE ? false : true,
+    loop: DEV_MODE ? false : false,
+    startSlide: DEV_MODE ? 2 : 0,
     maxSlides: 4,
-    slideTimeout: 5000,
+    slideTimeout: DEV_MODE ? 5000 : 5000,
   },
 };
 
