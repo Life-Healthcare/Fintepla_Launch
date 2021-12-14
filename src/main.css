@@ -583,6 +583,19 @@ sup {
   --height: 50px;
 }
 
+.mobile .carousel-slide-0::after,
+.mobile .carousel-slide-3::after {
+  content: "";
+  width: 98px;
+  height: 100%;
+  background: linear-gradient(-90deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.63;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
 .mobile.banner {
   display: flex;
   flex-direction: row-reverse;
