@@ -137,6 +137,20 @@ sup {
   --height: 90px;
 }
 
+.leaderboard .carousel-slide-0::after,
+.leaderboard .carousel-slide-1::after,
+.leaderboard .carousel-slide-2::after {
+  content: "";
+  width: 169px;
+  height: 100%;
+  background: linear-gradient(-90deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.63;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
 .leaderboard.banner {
   display: flex;
   flex-direction: row-reverse;

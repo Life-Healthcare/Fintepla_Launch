@@ -57,7 +57,11 @@
                     </a>
                 </p>
                 <p>
-                    <strong>UK-FIN1-2100096 | December 2021</strong>
+                    <% if (type === "mobile") { %>
+                        <strong>UK-FIN1-2100097 | December 2021</strong>
+                    <% } else { %>
+                        <strong>UK-FIN1-2100094 | December 2021</strong>
+                    <% } %>
                 </p>
             </div>
         <% } %>
@@ -70,7 +74,11 @@
                     <strong>Click here for Fintepla prescribing information & Adverse Event reporting</strong>
                 </p>
                 <p>
-                    <strong>UK-FIN1-2100096 | December 2021</strong>
+                    <% if (type === "double-mpu") { %>
+                        <strong>UK-FIN1-2100096 | December 2021</strong>
+                    <% } else { %>
+                        <strong>UK-FIN1-2100095 | December 2021</strong>
+                    <% } %>
                 </p>
             </div>
         <% } %>
@@ -78,7 +86,7 @@
         <% if (['mobile'].includes(type)) { %>
             <p>
                 <strong>
-                    UK-FIN1-2100096<br/>
+                    UK-FIN1-2100097<br/>
                     December 2021
                 </strong>
             </p>
