@@ -26,6 +26,12 @@
                 <div class="carousel-slide carousel-slide-2"
                      style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
                     <h3>Join us for the launch meeting – <br/>in person or online</h3>
+                    <% if (["leaderboard", "double-mpu"].includes(type)) { %>
+                        <div class="button">
+                            <span>REGISTER <br/>YOUR INTEREST</span>
+                            <img src="<%= require('./assets/triangle.svg') %>" alt=""/>
+                        </div>
+                    <% } %>
                 </div>
                 <div class="carousel-slide carousel-slide-3"
                      style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
