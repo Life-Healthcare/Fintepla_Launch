@@ -67,6 +67,15 @@ aside {
   color: var(--color-primary);
 }
 
+sup {
+  vertical-align: text-top;
+  font-size: 0.75em;
+}
+
+#legal {
+  cursor: pointer;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -98,6 +107,21 @@ aside {
   min-width: 100%;
   width: 100%;
   height: 100%;
+}
+
+.description {
+  font-size: 9px;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.description p {
+  line-height: 1.2em;
+}
+
+.description ol {
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
 /**
@@ -180,11 +204,29 @@ aside {
   font-size: 16px;
   top: 10px;
   left: 100px;
+  width: 181px;
+  text-transform: uppercase;
+}
+
+.leaderboard .carousel-slide-2 h3 {
+  position: relative;
+  font-size: 16px;
+  top: 10px;
+  left: 100px;
   width: 195px;
   text-transform: uppercase;
 }
 
-.leaderboard .carousel[data-slide="2"] {
+.leaderboard .description {
+  font-size: 9px;
+  width: 245px;
+  top: 10px;
+  left: 10px;
+  position: absolute;
+}
+
+.leaderboard .carousel[data-slide="2"],
+.leaderboard .carousel[data-slide="3"] {
   --background-size: 170% auto;
   --background-position: 100% 30%;
 }
@@ -198,6 +240,19 @@ aside {
   right: 120px;
 }
 
+.leaderboard .carousel[data-slide="3"] .carousel-slide::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.59);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.leaderboard .carousel-slide-3 * {
+  z-index: 1;
+}
+
 /**
   MPU
 */
@@ -205,6 +260,8 @@ aside {
 .mpu {
   --width: 300px;
   --height: 250px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .mpu main {
@@ -219,7 +276,7 @@ aside {
 
 .mpu .logo {
   position: absolute;
-  top: 11px;
+  bottom: 11px;
   right: 11px;
 }
 
@@ -234,10 +291,15 @@ aside {
   height: 52px;
   font-size: 9px;
   display: flex;
+  flex-direction: row-reverse;
   align-items: stretch;
   justify-content: space-between;
   gap: 20px;
   padding: 6px 11px;
+}
+
+.mpu aside strong {
+  font-weight: normal;
 }
 
 .mpu .button {
@@ -271,9 +333,40 @@ aside {
   width: 194px;
 }
 
-.mpu .carousel[data-slide="2"] .carousel-slide {
+.mpu .carousel-slide-2 h3 {
+  font-size: 18px;
+  width: 215px;
+}
+
+.mpu .carousel[data-slide="2"] .carousel-slide,
+.mpu .carousel[data-slide="3"] .carousel-slide {
   --background-size: auto 160%;
   --background-position: 80% 40%;
+}
+
+.mpu .carousel[data-slide="3"] .carousel-slide::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.59);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mpu .carousel[data-slide="3"] .carousel-slide * {
+  position: relative;
+  z-index: 1;
+}
+
+.mpu .description {
+  font-size: 9px;
+  width: 271px;
+  margin-top: 1em;
+}
+
+.mpu main[data-slide="3"] .logo {
+  top: 11px;
+  bottom: auto;
 }
 
 /**
@@ -283,6 +376,8 @@ aside {
 .double-mpu {
   --width: 300px;
   --height: 600px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .double-mpu main {
@@ -327,7 +422,10 @@ aside {
   gap: 10px;
   padding: 10px 15px;
   display: flex;
-  width: 100%;
+  width: calc(100% - 20px);
+  position: absolute;
+  left: 10px;
+  bottom: 163px;
 }
 
 .double-mpu .button span {
@@ -376,20 +474,50 @@ aside {
 
 .double-mpu .carousel-slide-1 h3 {
   font-size: 31px;
-  width: 200px;
+  width: 264px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
 }
 
-.double-mpu .carousel-slide-2 {
+.double-mpu .carousel-slide-1 span:nth-child(2)::after {
+  content: "";
+  display: block;
+}
+
+.double-mpu .carousel-slide-2 h3 {
+  font-size: 31px;
+  width: 208px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.double-mpu .carousel-slide-3 {
   display: flex;
   align-items: flex-end;
   padding-bottom: 80px;
 }
 
-.double-mpu .carousel[data-slide="2"] .carousel-slide {
+.double-mpu .carousel-slide-3::after {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.63);
+  height: 150px;
+  width: 100%;
+}
+
+.double-mpu .description {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+}
+
+.double-mpu .carousel[data-slide="2"] .carousel-slide,
+.double-mpu .carousel[data-slide="3"] .carousel-slide {
   --background-size: auto 150%;
   --background-position: 37% 90%;
 }
@@ -481,9 +609,16 @@ aside {
   left: 6px;
 }
 
-.mobile .carousel-slide-1 h3 {
-  font-size: 12px;
-  width: 200px;
+.mobile .carousel-slide-1,
+.mobile .carousel-slide-2 {
+  background-image: none !important;
+  background-color: #370457;
+}
+
+.mobile .carousel-slide-1 h3,
+.mobile .carousel-slide-2 h3 {
+  font-size: 11px;
+  width: 212px;
   text-transform: uppercase;
   position: relative;
   top: 4px;
