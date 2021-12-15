@@ -1,18 +1,4 @@
-@font-face {
-  font-family: "Lato";
-  src: url("./assets/fonts/Lato-Black.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("./assets/fonts/Lato-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
 
 :root {
   --font: "Lato", Arial, sans-serif;
