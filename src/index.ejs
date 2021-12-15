@@ -6,6 +6,9 @@
           content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Ad Banners</title>
+    <script>
+      window.type = "<%= type %>";
+    </script>
 </head>
 <body>
 <div class="banner <%= type %>">
@@ -26,28 +29,43 @@
                 <div class="carousel-slide carousel-slide-2"
                      style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
                     <h3>Join us for the launch meeting – <br/>in person or online</h3>
-                    <% if (["leaderboard", "double-mpu"].includes(type)) { %>
+                    <% if (['leaderboard', 'double-mpu'].includes(type)) { %>
                         <div class="button">
                             <span>REGISTER <br/>YOUR INTEREST</span>
                             <img src="<%= require('./assets/triangle.svg') %>" alt=""/>
                         </div>
                     <% } %>
                 </div>
-                <div class="carousel-slide carousel-slide-3"
+                <% if (['mobile'].includes(type)) { %>
+                    <div class="carousel-slide carousel-slide-3">
+                        <div class="description">
+                            <p>Fintepla is indicated for the treatment of seizures associated with Dravet syndrome as an
+                                add-on therapy to other antiepileptic medicines for patients 2 years of age and
+                                older.<sup>1</sup></p>
+
+                            <ol>
+                                <li>Fintepla Summary of Product Characteristics.</li>
+                            </ol>
+                        </div>
+                    </div>
+                <% } %>
+                <div class="carousel-slide <%= ['mobile'].includes(type) ? 'carousel-slide-4' : 'carousel-slide-3' %>"
                      style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
                     <div class="button">
                         <span>REGISTER <br/>YOUR INTEREST</span>
                         <img src="<%= require('./assets/triangle.svg') %>" alt=""/>
                     </div>
-                    <div class="description">
-                        <p>Fintepla is indicated for the treatment of seizures associated with Dravet syndrome as an
-                            add-on therapy to other antiepileptic medicines for patients 2 years of age and
-                            older.<sup>1</sup></p>
+                    <% if (['leaderboard', 'mpu', 'double-mpu'].includes(type)) { %>
+                        <div class="description">
+                            <p>Fintepla is indicated for the treatment of seizures associated with Dravet syndrome as an
+                                add-on therapy to other antiepileptic medicines for patients 2 years of age and
+                                older.<sup>1</sup></p>
 
-                        <ol>
-                            <li>Fintepla Summary of Product Characteristics.</li>
-                        </ol>
-                    </div>
+                            <ol>
+                                <li>Fintepla Summary of Product Characteristics.</li>
+                            </ol>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -63,7 +81,7 @@
                     </a>
                 </p>
                 <p>
-                    <% if (type === "mobile") { %>
+                    <% if (type === 'mobile') { %>
                         <strong>UK-FIN1-2100097 | December 2021</strong>
                     <% } else { %>
                         <strong>UK-FIN1-2100094 | December 2021</strong>
@@ -80,7 +98,7 @@
                     <strong>Click here for Fintepla prescribing information & Adverse Event reporting</strong>
                 </p>
                 <p>
-                    <% if (type === "double-mpu") { %>
+                    <% if (type === 'double-mpu') { %>
                         <strong>UK-FIN1-2100096 | December 2021</strong>
                     <% } else { %>
                         <strong>UK-FIN1-2100095 | December 2021</strong>

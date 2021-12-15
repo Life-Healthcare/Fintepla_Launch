@@ -598,7 +598,7 @@ sup {
 }
 
 .mobile .carousel-slide-0::after,
-.mobile .carousel-slide-3::after {
+.mobile .carousel-slide-4::after {
   content: "";
   width: 98px;
   height: 100%;
@@ -692,6 +692,24 @@ sup {
 .mobile .carousel-slide-2 {
   background-image: none !important;
   background-color: #370457;
+}
+
+.mobile .carousel-slide-3 {
+  background-image: none !important;
+  background-color: #8764A5;
+}
+
+.mobile .carousel-slide-3 .description {
+  font-size: 7px;
+  padding: 0 1em;
+}
+
+.mobile .carousel-slide-3 .description ol {
+  margin-top: 0;
+}
+
+.mobile main[data-slide="3"] .disclaimer {
+  display: none;
 }
 
 .mobile .carousel-slide-1 h3,
