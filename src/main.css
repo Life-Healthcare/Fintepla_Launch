@@ -174,7 +174,6 @@ sup {
 .leaderboard .carousel-slide {
   background-size: var(--background-size);
   background-position: var(--background-position);
-  transition: all 3.5s ease;
 }
 
 .leaderboard .logo {
@@ -271,7 +270,6 @@ sup {
 .mpu .carousel-slide {
   background-size: var(--background-size);
   background-position: var(--background-position);
-  transition: all 3s ease;
 }
 
 .mpu .carousel-slide-0::after,
@@ -436,7 +434,6 @@ sup {
   --background-position: 100% 0;
   background-size: var(--background-size);
   background-position: var(--background-position);
-  transition: all 3s ease;
 }
 
 .double-mpu .logo {
@@ -645,7 +642,6 @@ sup {
 .mobile .carousel-slide {
   --background-size: 100% auto;
   --background-position: 100% 0;
-  transition: all 3.5s ease;
 }
 
 .mobile .carousel-slide {
