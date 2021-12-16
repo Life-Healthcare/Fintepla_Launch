@@ -16,9 +16,11 @@ npm install
 npm run package
 ```
 
-### UAT Links
+### Preview Links
 
-- [MPU](https://finer-vision.github.io/fintepla-banners/mpu)
-- [Double MPU](https://finer-vision.github.io/fintepla-banners/double-mpu)
-- [Leaderboard](https://finer-vision.github.io/fintepla-banners/leaderboard)
-- [Mobile](https://finer-vision.github.io/fintepla-banners/mobile)
+| Type        | Link                                                        |
+| ----------- | ----------------------------------------------------------- |
+| MPU         | https://finer-vision.github.io/fintepla-banners/mpu         |
+| Double MPU  | https://finer-vision.github.io/fintepla-banners/double-mpu  |
+| Leaderboard | https://finer-vision.github.io/fintepla-banners/leaderboard |
+| Mobile      | https://finer-vision.github.io/fintepla-banners/mobile      |
