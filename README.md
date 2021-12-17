@@ -18,9 +18,9 @@ npm run package
 
 ### Preview Links
 
-| Type        | Link                                                        |
-|-------------|-------------------------------------------------------------|
-| MPU         | https://finer-vision.github.io/fintepla-banners/mpu         |
-| Double MPU  | https://finer-vision.github.io/fintepla-banners/double-mpu  |
-| Leaderboard | https://finer-vision.github.io/fintepla-banners/leaderboard |
-| Mobile      | https://finer-vision.github.io/fintepla-banners/mobile      |
+| Type        | Link                                                          |
+|-------------|---------------------------------------------------------------|
+| MPU         | https://life-healthcare.github.io/Fintepla_Launch/mpu         |
+| Double MPU  | https://life-healthcare.github.io/Fintepla_Launch/double-mpu  |
+| Leaderboard | https://life-healthcare.github.io/Fintepla_Launch/leaderboard |
+| Mobile      | https://life-healthcare.github.io/Fintepla_Launch/mobile      |
