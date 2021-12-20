@@ -580,8 +580,7 @@ sup {
   --height: 50px;
 }
 
-.mobile .carousel-slide-0::after,
-.mobile .carousel-slide-4::after {
+.mobile .carousel-slide-0::after {
   content: "";
   width: 98px;
   height: 100%;
@@ -590,6 +589,17 @@ sup {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 0;
+}
+.mobile .carousel-slide-0::before {
+  content: "";
+  width: 98px;
+  height: 100%;
+  background: linear-gradient(-90deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.73;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 0;
 }
 
@@ -617,7 +627,7 @@ sup {
   height: 14px;
   display: flex;
   align-items: center;
-  padding: 0 1em;
+  padding: 0 2.2em;
 }
 .mobile .legal-ref span {
   color: #370557;
