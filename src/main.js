@@ -3,17 +3,19 @@ const TYPE = window.type;
 
 window.config = {
   carousel: {
-    autoPlay: DEV_MODE ? false : true,
+    autoPlay: DEV_MODE ? true : true,
     loop: DEV_MODE ? false : false,
     startSlide: DEV_MODE ? 0 : 0,
-    maxSlides: TYPE === "mobile" ? 5 : 4,
-    slideTimeout: DEV_MODE ? 1000 : 5000,
+    maxSlides: 4,
+    slideTimeout: DEV_MODE ? 5000 : 5000,
   },
 };
 
 window.main = () => {
   const main = document.querySelector("#main");
   const legal = document.querySelector("#legal");
+  const ref = document.querySelector("#ref");
+  const close = document.querySelector("#close-button");
 
   const links = {
     main: "https://zogenix.wavecast.io/fintepla-2022/registration?utm_source=Digital&utm_medium=BannerAds&utm_campaign=Register_interest",
@@ -33,10 +35,37 @@ window.main = () => {
     openLink(links.legal);
   });
 
+  ref.addEventListener("click", (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    state.holding.slide = state.carousel.slide;
+    window.config.carousel.autoPlay = false;
+    window.config.carousel.maxSlides = 5;
+    state.carousel.slide = 4;
+    updateDom();
+  });
+
+  close.addEventListener("click", (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    window.config.carousel.maxSlides = 4;
+    state.carousel.slide = Math.min(state.holding.slide, 3);
+    window.config.carousel.autoPlay = true;
+    if (state.carousel.slide === 3) {
+      updateDom();
+    } else {
+      state.carousel.slide = state.carousel.slide - 1
+      updateSlide();
+    }
+  });
+
   const carousel = document.querySelector(".carousel");
   const state = {
     carousel: {
       slide: window.config.carousel.startSlide,
+    },
+    holding: {
+      slide: 0,
     },
   };
 
