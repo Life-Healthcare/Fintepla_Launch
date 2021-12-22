@@ -35,29 +35,31 @@ window.main = () => {
     openLink(links.legal);
   });
 
-  ref.addEventListener("click", (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    state.holding.slide = state.carousel.slide;
-    window.config.carousel.autoPlay = false;
-    window.config.carousel.maxSlides = 5;
-    state.carousel.slide = 4;
-    updateDom();
-  });
-
-  close.addEventListener("click", (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    window.config.carousel.maxSlides = 4;
-    state.carousel.slide = Math.min(state.holding.slide, 3);
-    window.config.carousel.autoPlay = true;
-    if (state.carousel.slide === 3) {
+  if(ref && close) {
+    ref.addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      state.holding.slide = state.carousel.slide;
+      window.config.carousel.autoPlay = false;
+      window.config.carousel.maxSlides = 5;
+      state.carousel.slide = 4;
       updateDom();
-    } else {
-      state.carousel.slide = state.carousel.slide - 1
-      updateSlide();
-    }
-  });
+    });
+
+    close.addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      window.config.carousel.maxSlides = 4;
+      state.carousel.slide = Math.min(state.holding.slide, 3);
+      window.config.carousel.autoPlay = true;
+      if (state.carousel.slide === 3) {
+        updateDom();
+      } else {
+        state.carousel.slide = state.carousel.slide - 1
+        updateSlide();
+      }
+    });
+  }
 
   const carousel = document.querySelector(".carousel");
   const state = {
@@ -78,6 +80,7 @@ window.main = () => {
   updateDom();
 
   window.updateSlide = function () {
+    console.log("?")
     state.carousel.slide = state.carousel.slide + 1;
     if (state.carousel.slide > window.config.carousel.maxSlides - 1) {
       if (!window.config.carousel.loop) return;
