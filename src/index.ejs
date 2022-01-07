@@ -6,12 +6,58 @@
           content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Ad Banners</title>
+    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
     <script>
       window.type = "<%= type %>";
+
+      window.onload = function () {
+        if (Enabler.isInitialized()) {
+          enablerInitHandler();
+        } else {
+          Enabler.addEventListener(
+            studio.events.StudioEvent.INIT,
+            enablerInitHandler
+          );
+        }
+      };
+
+      function enablerInitHandler() {
+        addListeners();
+        if (Enabler.isPageLoaded()) {
+          politeInit();
+        } else {
+          Enabler.addEventListener(
+            studio.events.StudioEvent.PAGE_LOADED,
+            politeInit
+          );
+        }
+        // Start polite loading, or start animation,
+        // load in your image assets, call Enabler methods,
+        // and/or include other Studio modules.
+      }
+
+      function addListeners() {
+        const exit = document.getElementById("bg-exit");
+        exit.addEventListener("click", exitClickHandler);
+        const type = document.getElementById("<%= type %>");
+        type.addEventListener("click", counterClickHandler);
+      }
+
+      function exitClickHandler() {
+        Enabler.counter("<%= type %>", true);
+        Enabler.exit("Background Exit");
+      }
+      function counterClickHandler() {
+        Enabler.counter("<%= type %>", true);
+      }
+      function politeInit() {
+        // Add your code to hide any loading image or animation and load creative
+        // assets or begin creative animation.
+      }
     </script>
 </head>
 <body>
-<div class="banner <%= type %>">
+    <div class="banner <%= type %>" id="<%= type %>">
     <main id="main">
         <div class="carousel" data-slide="0" style="--slide: 0">
             <div class="carousel-slides">
