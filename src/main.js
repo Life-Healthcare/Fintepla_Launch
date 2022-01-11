@@ -4,10 +4,10 @@ const TYPE = window.type;
 window.config = {
   carousel: {
     autoPlay: DEV_MODE ? true : true,
-    loop: DEV_MODE ? false : false,
+    loop: DEV_MODE ? true : false,
     startSlide: DEV_MODE ? 0 : 0,
     maxSlides: 4,
-    slideTimeout: DEV_MODE ? 5000 : 5000,
+    slideTimeout: DEV_MODE ? 15000 : 5000,
   },
 };
 
@@ -35,7 +35,7 @@ window.main = () => {
     openLink(links.legal);
   });
 
-  if(ref && close) {
+  if (ref && close) {
     ref.addEventListener("click", (e) => {
       e.stopPropagation();
       e.preventDefault();
@@ -55,7 +55,7 @@ window.main = () => {
       if (state.carousel.slide === 3) {
         updateDom();
       } else {
-        state.carousel.slide = state.carousel.slide - 1
+        state.carousel.slide = state.carousel.slide - 1;
         updateSlide();
       }
     });
@@ -80,7 +80,6 @@ window.main = () => {
   updateDom();
 
   window.updateSlide = function () {
-    console.log("?")
     state.carousel.slide = state.carousel.slide + 1;
     if (state.carousel.slide > window.config.carousel.maxSlides - 1) {
       if (!window.config.carousel.loop) return;

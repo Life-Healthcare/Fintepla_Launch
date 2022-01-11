@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ad Banners</title>
     <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
     <script>
@@ -37,12 +39,18 @@
       }
 
       function addListeners() {
+        const prescriber = document.getElementById("legal");
+        legal.addEventListener("click", prescriberExitHandler);
         const exit = document.getElementById("bg-exit");
         exit.addEventListener("click", exitClickHandler);
         const type = document.getElementById("<%= type %>");
         type.addEventListener("click", counterClickHandler);
       }
 
+      function prescriberExitHandler() {
+        Enabler.counter("<%= type %>", true);
+        Enabler.exit("PI Exit");
+      }
       function exitClickHandler() {
         Enabler.counter("<%= type %>", true);
         Enabler.exit("Background Exit");
@@ -55,140 +63,186 @@
         // assets or begin creative animation.
       }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="banner <%= type %>" id="<%= type %>">
-    <main id="main">
+      <main id="main">
+        <div id="bg-exit"></div>
         <div class="carousel" data-slide="0" style="--slide: 0">
-            <div class="carousel-slides">
-                <div class="carousel-slide carousel-slide-0"
-                     style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
-                    <h3>Launching in the UK IN 2022</h3>
-                </div>
-                <div class="carousel-slide carousel-slide-1"
-                     style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
-                    <h3>
-                        <span>A</span> <span>NEW</span> <span>ADVANCE</span> <span>IN</span> <span>THE</span> <span>TREATMENT</span>
-                        <span>OF</span> <span>DRAVET</span> <span>SYNDROME</span>
-                    </h3>
-                </div>
-                <div class="carousel-slide carousel-slide-2"
-                     style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
-                    <h3>Join us for the launch meeting – <br/>in person or online</h3>
-                    <% if (['leaderboard', 'double-mpu'].includes(type)) { %>
-                        <div class="button">
-                            <span>REGISTER <br/>YOUR INTEREST</span>
-                            <img src="<%= require('./assets/triangle.svg') %>" alt=""/>
-                        </div>
-                    <% } %>
-                </div>
-                <% if (type === 'mobile') { %>
-                    <div class="carousel-slide carousel-slide-3">
-                        <div class="description">
-                            <p>Fintepla is indicated for the treatment of seizures associated with Dravet syndrome
-                                as an add-on therapy to other antiepileptic medicines for patients 2 years of age
-                                and older.<sup>1</sup></p>
-                            <div class="button">
-                                <span>REGISTER <br/>YOUR INTEREST</span>
-                                <img src="<%= require('./assets/triangle.svg') %>" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                <% } %>
-                <% if (['leaderboard', 'mpu', 'double-mpu'].includes(type)) { %>
-                <div class="carousel-slide carousel-slide-3 %>"
-                     style="background-image: url('<%= require(`./assets/${type}-background.jpg`) %>')">
-                    <div class="button">
-                        <span>REGISTER <br/>YOUR INTEREST</span>
-                        <img src="<%= require('./assets/triangle.svg') %>" alt=""/>
-                    </div>
-                    <div class="description">
-                        <p>Fintepla is indicated for the treatment of seizures associated with Dravet syndrome as an
-                            add-on therapy to other antiepileptic medicines for patients 2 years of age and
-                            older.<sup>1</sup></p>
-
-                        <ol>
-                            <li>Fintepla Summary of Product Characteristics.</li>
-                        </ol>
-                    </div>
-                </div>
-                <% } %>
-                <% if (type === 'mobile') { %>
-                    <div class="carousel-slide carousel-slide-4">
-                        <div class="reference">
-                            <div class="reference-list">
-                                <p>Reference:</p>
-                                <ol>
-                                    <li>Fintepla Summary of Product Characteristics.</li>
-                                </ol>
-                            </div>
-                            <div class="close-button" id="close-button">
-                                <img src="<%= require('./assets/close.png') %>" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                <% } %>
+          <div class="carousel-slides">
+            <div
+              class="carousel-slide carousel-slide-0"
+              style="
+                background-image: url('<%= require(`./assets/${type}-background.jpg`) %>');
+              "
+            >
+              <h3>Launching in the UK IN 2022</h3>
             </div>
+            <div
+              class="carousel-slide carousel-slide-1"
+              style="
+                background-image: url('<%= require(`./assets/${type}-background.jpg`) %>');
+              "
+            >
+              <h3>
+                <span>A</span> <span>NEW</span> <span>ADVANCE</span>
+                <span>IN</span> <span>THE</span> <span>TREATMENT</span>
+                <span>OF</span> <span>DRAVET</span> <span>SYNDROME</span>
+              </h3>
+            </div>
+            <div
+              class="carousel-slide carousel-slide-2"
+              style="
+                background-image: url('<%= require(`./assets/${type}-background.jpg`) %>');
+              "
+            >
+              <h3>
+                Join us for the launch meeting – <br />in person or online
+              </h3>
+              <% if (['leaderboard', 'double-mpu'].includes(type)) { %>
+              <div class="button">
+                <span>REGISTER <br />YOUR INTEREST</span>
+                <img src="<%= require('./assets/triangle.svg') %>" alt="" />
+              </div>
+              <% } %>
+            </div>
+            <% if (type === 'mobile') { %>
+            <div class="carousel-slide carousel-slide-3">
+              <div class="description">
+                <p>
+                  Fintepla is indicated for the treatment of seizures associated
+                  with Dravet syndrome as an add-on therapy to other
+                  antiepileptic medicines for patients 2 years of age and
+                  older.<sup>1</sup>
+                </p>
+                <div class="button">
+                  <span>REGISTER <br />YOUR INTEREST</span>
+                  <img src="<%= require('./assets/triangle.svg') %>" alt="" />
+                </div>
+              </div>
+            </div>
+            <% } %> <% if (['leaderboard', 'mpu', 'double-mpu'].includes(type))
+            { %>
+            <div
+              class="carousel-slide carousel-slide-3 %>"
+              style="
+                background-image: url('<%= require(`./assets/${type}-background.jpg`) %>');
+              "
+            >
+              <div class="button">
+                <span>REGISTER <br />YOUR INTEREST</span>
+                <img src="<%= require('./assets/triangle.svg') %>" alt="" />
+              </div>
+              <div class="description">
+                <p>
+                  Fintepla is indicated for the treatment of seizures associated
+                  with Dravet syndrome as an add-on therapy to other
+                  antiepileptic medicines for patients 2 years of age and
+                  older.<sup>1</sup>
+                </p>
+
+                <ol>
+                  <li>Fintepla Summary of Product Characteristics.</li>
+                </ol>
+              </div>
+            </div>
+            <% } %> <% if (type === 'mobile') { %>
+            <div class="carousel-slide carousel-slide-4">
+              <div class="reference">
+                <div class="reference-list">
+                  <p>Reference:</p>
+                  <ol>
+                    <li>Fintepla Summary of Product Characteristics.</li>
+                  </ol>
+                </div>
+                <div class="close-button" id="close-button">
+                  <img src="<%= require('./assets/close.png') %>" alt="" />
+                </div>
+              </div>
+            </div>
+            <% } %>
+          </div>
         </div>
 
-        <img class="logo" src="<%= require('./assets/logo.svg') %>" alt="ZOGENIX"/>
-        <div class="disclaimer">Fintepla is currently<br/>under NICE evaluation</div>
+        <img
+          class="logo"
+          src="<%= require('./assets/logo.svg') %>"
+          alt="ZOGENIX"
+        />
+        <div class="disclaimer">
+          Fintepla is currently<br />under NICE evaluation
+        </div>
         <% if (type === 'leaderboard') { %>
-            <div class="legal" id="legal">
-                <p>
-                    <a href="https://fintepla.eu/wp-content/uploads/pdf/Fintepla-fenfluramine-Prescribing-Information.pdf"
-                       target="_blank">
-                        <strong>Click here for Fintepla prescribing information & Adverse Event reporting</strong>
-                    </a>
-                </p>
-                <p>
-                        <strong>UK-FIN1-2100094 | December 2021</strong>
-                </p>
-            </div>
+        <div class="legal" id="legal">
+          <p>
+            <a
+              href="https://fintepla.eu/wp-content/uploads/pdf/Fintepla-fenfluramine-Prescribing-Information.pdf"
+              target="_blank"
+            >
+              <strong
+                >Click here for Fintepla prescribing information & Adverse Event
+                reporting</strong
+              >
+            </a>
+          </p>
+          <p>
+            <strong>UK-FIN1-2100094 | December 2021</strong>
+          </p>
+        </div>
+        <% } %> <% if (type === 'mobile') { %>
+        <div class="legal" id="legal">
+          <p>
+            <a
+              href="https://fintepla.eu/wp-content/uploads/pdf/Fintepla-fenfluramine-Prescribing-Information.pdf"
+              target="_blank"
+            >
+              <strong
+                >Fintepla prescribing information & Adverse Event
+                reporting</strong
+              >
+            </a>
+          </p>
+          <div class="legal-ref" id="ref">
+            <span>REF</span>
+          </div>
+          <p>
+            <strong>UK-FIN1-2100097 | December 2021</strong>
+          </p>
+        </div>
         <% } %>
-        <% if (type === 'mobile') { %>
-            <div class="legal" id="legal">
-                <p>
-                    <a href="https://fintepla.eu/wp-content/uploads/pdf/Fintepla-fenfluramine-Prescribing-Information.pdf"
-                       target="_blank">
-                        <strong>Fintepla prescribing information & Adverse Event reporting</strong>
-                    </a>
-                </p>
-                <div class="legal-ref" id="ref">
-                    <span>REF</span>
-                </div>
-                <p>
-                        <strong>UK-FIN1-2100097 | December 2021</strong>
-                </p>
-            </div>
-        <% } %>
-    </main>
+      </main>
 
-    <aside>
+      <aside>
         <% if (['mpu', 'double-mpu'].includes(type)) { %>
-            <div class="legal" id="legal">
-                <p>
-                    <strong>Click here for Fintepla prescribing information & Adverse Event reporting</strong>
-                </p>
-                <p>
-                    <% if (type === 'double-mpu') { %>
-                        <strong>UK-FIN1-2100096 | December 2021</strong>
-                    <% } else { %>
-                        <strong>UK-FIN1-2100095 | December 2021</strong>
-                    <% } %>
-                </p>
-            </div>
+        <div class="legal" id="legal">
+          <p>
+            <strong
+              >Click here for Fintepla prescribing information & Adverse Event
+              reporting</strong
+            >
+          </p>
+          <p>
+            <% if (type === 'double-mpu') { %>
+            <strong>UK-FIN1-2100096 | December 2021</strong>
+            <% } else { %>
+            <strong>UK-FIN1-2100095 | December 2021</strong>
+            <% } %>
+          </p>
+        </div>
         <% } %>
-        <img src="<%= require('./assets/fintepla-logo.svg') %>" alt="Fintepla"/>
+        <img
+          src="<%= require('./assets/fintepla-logo.svg') %>"
+          alt="Fintepla"
+        />
         <% if (['mobile'].includes(type)) { %>
-            <p>
-                <strong>
-                    UK-FIN1-2100097<br/>
-                    December 2021
-                </strong>
-            </p>
+        <p>
+          <strong>
+            UK-FIN1-2100097<br />
+            December 2021
+          </strong>
+        </p>
         <% } %>
-    </aside>
-</div>
-</body>
+      </aside>
+    </div>
+  </body>
 </html>
