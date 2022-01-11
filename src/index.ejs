@@ -49,14 +49,17 @@
 
       function prescriberExitHandler() {
         Enabler.counter("<%= type %>", true);
-        Enabler.exit("PI Exit");
+        Enabler.exit("Pi Exit");
+        e.stopPropagation();
       }
       function exitClickHandler() {
         Enabler.counter("<%= type %>", true);
         Enabler.exit("Background Exit");
+        e.stopPropagation();
       }
       function counterClickHandler() {
         Enabler.counter("<%= type %>", true);
+        e.stopPropagation();
       }
       function politeInit() {
         // Add your code to hide any loading image or animation and load creative

@@ -24,6 +24,10 @@ window.main = () => {
   };
 
   function openLink(link) {
+    if (process.env.NODE_ENV === "development") {
+      alert("Links will not open in development...");
+      return;
+    }
     window.open(link, "_blank");
   }
 
