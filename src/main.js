@@ -13,31 +13,8 @@ window.config = {
 
 window.main = () => {
   const main = document.querySelector("#main");
-  const legal = document.querySelector("#legal");
   const ref = document.querySelector("#ref");
   const close = document.querySelector("#close-button");
-
-  const links = {
-    main: "https://zogenix.wavecast.io/fintepla-2022/registration?utm_source=Digital&utm_medium=BannerAds&utm_campaign=Register_interest",
-    legal:
-      "https://www.zogenixresources.eu/Fintepla-fenfluramine-Prescribing-Information.pdf",
-  };
-
-  function openLink(link) {
-    if (process.env.NODE_ENV === "development") {
-      alert("Links will not open in development...");
-      return;
-    }
-    window.open(link, "_blank");
-  }
-
-  main.addEventListener("click", () => {
-    openLink(links.main);
-  });
-
-  legal.addEventListener("click", () => {
-    openLink(links.legal);
-  });
 
   if (ref && close) {
     ref.addEventListener("click", (e) => {
